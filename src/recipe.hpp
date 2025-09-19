@@ -2,12 +2,13 @@
 
 #include <string>
 #include <vector>
-
+#include <format>
 
 
 class Ingredient
 {
     public:
+    Ingredient(double n, std::string unit, std::string name);
     double n;
     std::string unit;
     std::string name;
@@ -26,9 +27,9 @@ class Recipe
     std::vector<Ingredient> ingredients;
     std::vector<std::string> steps;
 
-    Recipe();
-    ~Recipe();
+    Recipe(std::string name, std::vector<std::string> tags, int servings, int energy, int protein, double price);
+    //~Recipe();
 
     void loadFromString(char* path);
-    void exportToString(char* path);
+    std::string exportToString();
 };
